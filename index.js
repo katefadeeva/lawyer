@@ -1,3 +1,8 @@
+// 7573253327:AAGK3qD_q2ZEx2bZ599xm8UsxpBrJdjprmo
+// 1002188856350
+
+require('dotenv').config();
+const axios = require('axios');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -76,12 +81,38 @@ function renderHtml(filePath, replacements = {}) {
   return html;
 }
 
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID;
+
+
 // Обработчик формы
-app.post('/submit-form', (req, res) => {
+app.post('/submit-form', async (req, res) => {
   const { name, phone, email, problem, consultationType } = req.body;
-  console.log('Форма отправлена:', { name, phone, email, problem, consultationType });
-  res.send('<h1>Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.</h1>');
+
+  // Сообщение для Telegram
+  const message = `
+  📝 Новая заявка на консультацию:
+  - Имя: ${name}
+  - Телефон: ${phone}
+  - Email: ${email}
+  - Проблема: ${problem}
+  - Формат консультации: ${consultationType}
+  `;
+
+  try {
+    // Отправляем сообщение в Telegram
+    await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      chat_id: TELEGRAM_CHANNEL_ID,
+      text: message,
+    });
+
+    res.send('<h1>Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.</h1>');
+  } catch (error) {
+    console.error('Ошибка отправки в Telegram:', error);
+    res.status(500).send('<h1>Ошибка отправки данных. Пожалуйста, попробуйте позже.</h1>');
+  }
 });
+
 
 // Запуск сервера
 app.listen(PORT, () => {
