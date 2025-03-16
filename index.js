@@ -73,7 +73,9 @@ function renderHtml(filePath, replacements = {}) {
   
   // Чтение футера
   const footerHtml = fs.readFileSync(path.join(__dirname, 'views/footer.html'), 'utf-8');
+  const headerHtml = fs.readFileSync(path.join(__dirname, 'views/header.html'), 'utf-8');
   replacements.footer = footerHtml;
+  replacements.header = headerHtml;
 
   for (const [key, value] of Object.entries(replacements)) {
     html = html.replace(new RegExp(`{{${key}}}`, 'g'), value);
