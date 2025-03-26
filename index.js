@@ -33,24 +33,31 @@ app.get('/', (req, res) => {
   const items = loadAllItems();
 
   const gridHtml = items.map(
-    (item) => `<div><a href='/item/${item.route}'>${item.name}</a></div>`
+    (item) => `<li><a href='/item/${item.route}'>${item.name}</a></li>`
   ).join('');
 
-  const html = renderHtml('views/layout.html', { 
-    content: renderHtml('views/index.html', { gridHtml })
+  const html = renderHtml('views/layout.html', {
+    gridHtml, // Передаем здесь, чтобы оно было доступно в layout
+    content: renderHtml('views/main.html', { })
   });
   res.send(html);
 });
 
 // Страницы пунктов
 app.get('/item/:route', (req, res) => {
+  const items = loadAllItems();
   const item = loadItemByRoute(req.params.route);
+
+  const gridHtml = items.map(
+      (item) => `<li><a href='/item/${item.route}'>${item.name}</a></li>`
+  ).join('');
 
   if (!item) {
     return res.status(404).send('<h1>Страница не найдена</h1>');
   }
 
-  const html = renderHtml('views/layout.html', { 
+  const html = renderHtml('views/layout.html', {
+    gridHtml,
     content: renderHtml('views/item.html', {
       itemName: item.name,
       itemDescription: item.description,
@@ -69,17 +76,26 @@ app.get('/item/:route', (req, res) => {
 // }
 
 function renderHtml(filePath, replacements = {}) {
-  let html = fs.readFileSync(path.join(__dirname, filePath), 'utf-8');
-  
-  // Чтение футера
-  const footerHtml = fs.readFileSync(path.join(__dirname, 'views/footer.html'), 'utf-8');
-  const headerHtml = fs.readFileSync(path.join(__dirname, 'views/header.html'), 'utf-8');
-  replacements.footer = footerHtml;
-  replacements.header = headerHtml;
+  let html = fs.readFileSync(filePath, 'utf-8'); // Читаем основной файл
 
+  // Загружаем header и footer
+  let headerHtml = fs.readFileSync(path.join(__dirname, 'views/header.html'), 'utf-8');
+  let footerHtml = fs.readFileSync(path.join(__dirname, 'views/footer.html'), 'utf-8');
+
+  // Заменяем gridHtml в header, если оно передано
+  if (replacements.gridHtml) {
+    headerHtml = headerHtml.replace('{{gridHtml}}', replacements.gridHtml);
+  }
+
+  // Подставляем header и footer в основной HTML
+  replacements.header = headerHtml;
+  replacements.footer = footerHtml;
+
+  // Выполняем подстановку всех {{ключей}} в основной HTML
   for (const [key, value] of Object.entries(replacements)) {
     html = html.replace(new RegExp(`{{${key}}}`, 'g'), value);
   }
+
   return html;
 }
 

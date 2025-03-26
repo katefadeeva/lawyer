@@ -1,12 +1,29 @@
 <header>
-    <div class="header-container">
-      <div class="header-logo">
-          <img class="header-icon" src="/icons/logo.jpg" alt="Логотип">
-          <div>Юридическая компания</div>
-      </div>
-      <div class="header-phone">
-        <img width="32px" src="./icons/call.png" alt="Телефон">
-        <a href="tel:+79524616931">+7 (952) 461-69-31</a>
-      </div>
+    <div class="header-logo">
+        <img src="/icons/logo.jpg" alt="Логотип">
+        <h3>Юридическая компания</h3>
     </div>
+    <aside class="header-container">
+        <div class="header-contacts">
+            <div class="header-phone">
+                <img width="20" src="/icons/svg/call.svg" alt="Телефон">
+                <a href="tel:+79524616931">+7 (952) 461-69-31</a>
+            </div>
+            <button class="header-button">
+                <a href="https://t.me/KhlystovNN"><img width="18" src="/icons/svg/telegram.svg" alt="Telegram"></a>
+            </button>
+            <button class="header-button">
+                <a href="https://wa.me/+79524616931"><img width="18" src="/icons/svg/whatsapp.svg" alt="Whatsapp"></a>
+            </button>
+            <button class="header-button header-button__consultation">
+                <a href="#consultation-form">Бесплатная консультация</a>
+            </button>
+        </div>
+        <nav class="navigation-container">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                {{gridHtml}}
+            </ul>
+        </nav>
+    </aside>
   </header>
