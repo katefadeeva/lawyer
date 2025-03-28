@@ -1,5 +1,6 @@
 {
-    "route": "point-one",
-    "name": "Пункт 1",
+    "route": "family-disputes",
+    "icon": "/icons/services/family.png",
+    "name": "Семейные споры",
     "description": "Описание для пункта 1: подробности, связанные с этим пунктом, но Серега все еще пес."
   }

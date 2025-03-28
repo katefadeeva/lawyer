@@ -36,9 +36,14 @@ app.get('/', (req, res) => {
     (item) => `<li><a href='/item/${item.route}'>${item.name}</a></li>`
   ).join('');
 
+  const itemsInfo = items.map((item) => `<a href='/item/${item.route}' class="service-info">
+    <img src='${item.icon}' alt='${item.name}'>
+    <h2>${item.name}</h2>
+  </a>`).join('');
+
   const html = renderHtml('views/layout.html', {
     gridHtml, // Передаем здесь, чтобы оно было доступно в layout
-    content: renderHtml('views/main.html', { })
+    content: renderHtml('views/main.html', {itemsInfo})
   });
   res.send(html);
 });

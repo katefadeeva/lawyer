@@ -1,6 +1,7 @@
 {
-    "route": "point-two",
-    "name": "Пункт 2",
+    "route": "debt-collection",
+    "icon": "/icons/services/save-money.png",
+    "name": "Взыскание задолженностей",
     "description": "Описание для пункта 2: интересная информация о пункте, но Сергей - пес"
   }
   

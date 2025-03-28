@@ -1,5 +1,6 @@
 {
-    "route": "point-three",
-    "name": "Пункт 3",
+    "route": "labor-disputes",
+    "icon": "/icons/services/settings.png",
+    "name": "Трудовые споры",
     "description": "Описание для пункта 3: абсолютно новый текс. Серега - неугомонная валькирия."
   }
