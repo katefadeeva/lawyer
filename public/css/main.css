@@ -1,5 +1,6 @@
 .main-container {
     width: 100%;
+    font-size: 20px;
 }
 
 .banner {
@@ -32,7 +33,6 @@
 }
 
 .banner-description {
-    font-size: 20px;
     line-height: 30px;
     width: 90%;
     max-width: 960px;
@@ -78,6 +78,21 @@
     }
 }
 
+.container {
+    position: relative;
+    width: calc(100% - 40px);
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .services-container {
     width: calc(100% - 20px);
     display: flex;
@@ -113,31 +128,9 @@
 }
 
 .how-works {
-    position: relative;
-    width: 100%;
-    min-height: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    overflow: hidden;
+    flex-direction: row;
     color: #ebebeb;
     background-image: url('/images/WorkPlan.webp');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-}
-
-/* Затемнение фона */
-.how-works::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Затемнение */
-    backdrop-filter: blur(5px);
 }
 
 .how-works-container {
@@ -160,16 +153,15 @@
     gap: 15px;
 }
 
-.steps-text {
+.steps-lists {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    font-size: 20px;
     color: #d9d9d9;
     max-width: 790px;
 }
 
-.steps-text h3 {
+.steps-lists h3 {
     color: #dddddd;
     font-weight: bold;
     font-size: 32px;
@@ -177,4 +169,77 @@
 
 .steps img {
     padding-top: 10px;
+}
+
+.reasons {
+    gap: 20px;
+    color: #6b5f5f;
+    background-image: url('/images/Advantages.webp');
+}
+
+.reasons h2 {
+    color: #574f4f;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.reasons-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 680px;
+}
+
+.reasons-lists__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.reasons-lists__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.reasons-lists__text  h3 {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.about-us {
+    gap: 20px;
+    color: #e8e8e8;
+    background-image: url('/images/About.webp');
+}
+
+.about-us__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    padding: 0 40px;
+}
+
+.about-us__container h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.about-us__container p {
+    display: block;
+    line-height: 35px;
+    padding: 10px 20px 10px 30px;
+    border-left: 3px solid #e8e8e8;;
+}
+
+    /* Затемнение фона */
+.how-works::before, .about-us::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.733), rgba(0, 0, 0, 0.526), rgba(0, 0, 0, 0.741));
+    backdrop-filter: blur(5px);
 }

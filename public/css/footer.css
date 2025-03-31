@@ -1,0 +1,89 @@
+.footer-container {
+    color: #2e2e2e;;
+    background-image: url('/images/Form.webp');
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    width: calc(100% - 40px);
+    font-size: 24px;
+}
+
+.footer-container h2 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.footer-container p {
+    max-width: 600px;
+}
+
+.consultation-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.consultation-form input {
+    height: calc(45px - 10px - 4px);
+    width: 100%;
+    max-width: calc(500px - 20px - 4px);
+    background-color: #ffffff63;
+    border: 2px solid rgba(0, 0, 0, 0.751);
+    border-radius: 5px;
+    padding: 5px 5px 5px 15px;
+    color: rgb(25, 25, 25);
+    font-size: 20px;
+    transition: 0.7s;
+}
+
+.consultation-form textarea {
+    height: calc(90px - 13px - 4px);
+    width: 100%;
+    max-width: calc(500px - 20px - 4px);
+    background-color: #ffffff63;
+    border: 2px solid rgba(0, 0, 0, 0.751);
+    border-radius: 5px;
+    padding: 8px 5px 5px 15px;
+    color: rgb(25, 25, 25);
+    font-size: 20px;
+    transition: 0.7s;
+}
+
+.consultation-form select {
+    height: 45px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff63;
+    border: 2px solid rgba(0, 0, 0, 0.751);
+    border-radius: 5px;
+    padding: 5px 5px 5px 15px;
+    color: rgb(25, 25, 25);
+    font-size: 20px;
+    transition: 0.7s;
+}
+
+.consultation-form select:invalid {
+    color: gray;
+}
+
+.form-button {
+    width: 100%;
+    max-width: 340px;
+    height: 60px;
+    background-color: #5552e8;
+    border: #5e5ce700 solid 3px;
+    margin-top: 40px;
+    transition: transform 0.3s ease;
+    color: white;
+    font-size: 24px;
+}
+
+.form-button:hover {
+    background-color: #3e58b8;
+}

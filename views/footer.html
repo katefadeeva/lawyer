@@ -1,18 +1,18 @@
 <footer>
-<div class="consultation-form">
-  <h2>Получите бесплатную консультацию!</h2>
-  <p>Заполните простую форму, опишите свою проблему и выберите удобный формат для консультации.</p>
-  <form id="consultation-form" action="/submit-form" method="POST">
-    <input type="text" name="name" placeholder="Ваше имя" required />
-    <input type="text" name="phone" placeholder="Номер телефона" required />
-    <input type="email" name="email" placeholder="Электронная почта" required />
-    <textarea name="problem" placeholder="Описание вашей проблемы" required></textarea>
-    <select name="consultationType" required>
-      <option value="" disabled selected>Форма консультации</option>
-      <option value="online">Онлайн</option>
-      <option value="offline">Очная</option>
-    </select>
-    <button type="submit">Получить консультацию</button>
-  </form>
-</div>
-  </footer>
+  <div class="footer-container">
+    <h2>Получите бесплатную консультацию!</h2>
+    <p>Заполните простую форму, опишите свою проблему и выберите удобный формат для консультации.</p>
+    <form class="consultation-form" id="consultation-form" action="/submit-form" method="POST">
+      <input type="text" name="name" placeholder="Ваше имя" required />
+      <input type="text" name="phone" placeholder="Номер телефона" required />
+      <input type="email" name="email" placeholder="Электронная почта" required />
+      <textarea name="problem" placeholder="Описание вашей проблемы" required></textarea>
+      <select name="consultationType" required>
+        <option value="" disabled selected>Форма консультации</option>
+        <option value="online">Онлайн</option>
+        <option value="offline">Очная</option>
+      </select>
+      <button class="form-button" type="submit">Получить консультацию</button>
+    </form>
+  </div>
+</footer>
