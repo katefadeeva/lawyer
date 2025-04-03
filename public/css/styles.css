@@ -1,5 +1,6 @@
 @import url("header.css");
 @import url('main.css');
+@import url('item.css');
 @import url('footer.css');
 
 html {
@@ -56,4 +57,19 @@ button {
 
 button:hover {
   transform: scale(1.03);
+}
+
+.container-image {
+  position: relative;
+  width: calc(100% - 40px);
+  min-height: calc(450px - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

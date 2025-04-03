@@ -1,4 +1,4 @@
-.footer-container {
+.form-container {
     color: #2e2e2e;;
     background-image: url('/images/Form.webp');
     display: flex;
@@ -9,14 +9,17 @@
     padding: 70px 20px;
     width: calc(100% - 40px);
     font-size: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.footer-container h2 {
+.form-container h2 {
     font-size: 35px;
     font-weight: bold;
 }
 
-.footer-container p {
+.form-container p {
     max-width: 600px;
 }
 
@@ -86,4 +89,37 @@
 
 .form-button:hover {
     background-color: #3e58b8;
+}
+
+.footer-container {
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(23, 20, 24);
+    padding: 20px 30px 40px;
+    gap: 10px;
+}
+
+.footer-container p {
+    font-size: 17px;
+    color: #e8e8e8;
+    text-align: center;
+    width: 70%;
+    max-width: 1000px;
+}
+
+.contacts {
+    background-color: rgb(33, 30, 39);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacts a {
+    height: 40px;
 }

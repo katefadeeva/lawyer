@@ -61,11 +61,19 @@ app.get('/item/:route', (req, res) => {
     return res.status(404).send('<h1>Страница не найдена</h1>');
   }
 
+  const itemServices = item.services ? item.services.map((service) => `<li>
+    <h3>${service.name}</h3>
+    <p>${service.description}</p>
+</li>`).join('') : `<div>Услуги не найдены</div>`;
+
   const html = renderHtml('views/layout.html', {
     gridHtml,
     content: renderHtml('views/item.html', {
       itemName: item.name,
       itemDescription: item.description,
+      itemIcon: item.icon,
+      itemImage: item.image,
+      itemServices,
     })
   });
   res.send(html);
