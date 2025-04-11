@@ -33,6 +33,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
     font-size: 14px;
     color: white;
     gap: 8px;
@@ -52,7 +53,7 @@ header {
     gap: 8px
 }
 
-.navigation-container ul {
+.navigation-container {
     display: flex;
     gap: 8px;
     color: white;
@@ -91,4 +92,37 @@ header {
 .header-button__consultation:hover {
     background-color: #3e58b8;
     transform: scale(1.03);
+}
+
+@media (max-width: 830px) {
+    header {
+        width: calc(100% - 40px);
+        padding: 10px 20px;
+    }
+
+    .header-logo h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 724px) {
+    .header-button__networks {
+        display: none;
+    }
+
+    .header-phone {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 630px) {
+    .header-button__consultation {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .header-logo h3 {
+        display: none;
+    }
 }

@@ -7,12 +7,6 @@
 }
 
 .info-container {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     color: #ececec;
     gap: 10px;
     font-size: 17px;
@@ -28,11 +22,6 @@
     display: flex;
     align-items: center;
     gap: 20px;
-}
-
-.item-name h2 {
-    font-size: 40px;
-    font-weight: bold;
 }
 
 .item-name img {
@@ -55,11 +44,6 @@
     gap: 30px;
     color: #3c3c3c;
     background-image: url('/images/services/OfferInfo.webp');
-}
-
-.item-services h2 {
-    font-size: 40px;
-    font-weight: bold;
 }
 
 .item-services__list {
@@ -92,4 +76,41 @@
     height: 20px;
     background: url('/icons/services/dot.png') no-repeat center;
     background-size: contain;
+}
+
+@media (max-width: 768px) {
+    .item-banner {
+        width: 100% !important;
+        padding: 40px 0; !important;
+    }
+
+    .item-name {
+        flex-direction: column;
+    }
+
+    .info-container p {
+        width: 100%;
+    }
+
+    .item-services {
+        width: calc(100% - 80px) !important;
+        padding: 40px !important;
+    }
+}
+
+@media (max-width: 620px) {
+    .info-container, .item-services__list {
+        font-size: 14px;
+    }
+
+    .item-services__list h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 465px) {
+    .item-services {
+        width: calc(100% - 40px) !important;
+        padding: 40px 20px !important;
+    }
 }
